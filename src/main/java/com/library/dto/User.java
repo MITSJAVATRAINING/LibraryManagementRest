@@ -1,12 +1,38 @@
 package com.library.dto;
 
-public class User {
+import java.io.Serializable;
 
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	int userId;
 	String firstName;
 	String lastName;
-	String phoneNumber;
+	String phone;
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	String address;
 	String email;
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -22,14 +48,6 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
 	}
 
 	public String getAddress() {

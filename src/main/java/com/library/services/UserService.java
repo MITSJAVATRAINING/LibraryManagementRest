@@ -1,6 +1,5 @@
 package com.library.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +14,11 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public List<User> getAllUsers() {
-		User u = new User();
-		u.setFirstName("Shaleen");
-		u.setLastName(String.valueOf(userRepository.getAllUsers()));
-		List<User> list = new ArrayList<>();
-		list.add(u);
-
-		return list;
+	public List<User> getUsers() {
+		return userRepository.getUsers();
+	}
+	
+	public int addUser(User user) {
+		return userRepository.addUser(user);
 	}
 }
