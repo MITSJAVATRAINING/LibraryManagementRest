@@ -1,0 +1,53 @@
+create table user (
+USER_ID INT NOT NULL auto_increment primary KEY,
+FIRST_NAME varchar(1000),
+LAST_NAME varchar(1000),
+ADDRESS varchar(3000),
+PHONE varchar(1000),
+EMAIL varchar(1000),
+total_issued_book int
+);
+
+create table category (
+CATEGORY_ID INT NOT NULL auto_increment primary KEY,
+CATEGORY_NAME varchar(1000)
+
+
+insert into category(category_name) values('Fantasy');
+insert into category(category_name) values('Mystery');
+insert into category(category_name) values('Thriller');
+insert into category(category_name) values('Contemporary');
+insert into category(category_name) values('Sci-Fi');
+insert into category(category_name) values('Romance');
+
+create table author (
+AUTHOR_ID INT NOT NULL auto_increment primary KEY,
+AUTHOR_NAME varchar(1000)
+);
+
+insert into author(author_name) values('Ruskin Bond');
+insert into author(author_name) values('Dalai Lama');
+insert into author(author_name) values('Javier Moro');
+insert into author(author_name) values('Salman Rushdie');
+insert into author(author_name) values('Deepak Nayyar');
+insert into author(author_name) values('L.K Advani');
+insert into author(author_name) values('Chetan Bhagat');
+insert into author(author_name) values('Paul Cohelo');
+insert into author(author_name) values('Ashoka Pandita');
+insert into author(author_name) values('Jawaharlal Nehru');
+
+create table book (
+BOOK_ID INT NOT NULL auto_increment primary KEY,
+BOOK_NAME varchar(1000),
+AUTHOR_ID INT,
+CATEGORY_ID INT,
+Total_BOOKS int,
+Available_BOOKS int
+);
+
+create table USERBOOKMAPPING(
+id INT NOT NULL auto_increment primary KEY,
+user_id int,
+book_id int,
+issue_Date datetime
+);

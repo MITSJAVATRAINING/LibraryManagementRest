@@ -13,6 +13,9 @@ public class User implements Serializable {
 	String firstName;
 	String lastName;
 	String phone;
+	String address;
+	int totalIssuedBook;
+	String email;
 	
 	public String getPhone() {
 		return phone;
@@ -21,11 +24,15 @@ public class User implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	String address;
-	String email;
-
 	
+	public int getTotalIssuedBook() {
+		return totalIssuedBook;
+	}
+
+	public void setTotalIssuedBook(int totalIssuedBook) {
+		this.totalIssuedBook = totalIssuedBook;
+	}
+
 	public int getUserId() {
 		return userId;
 	}

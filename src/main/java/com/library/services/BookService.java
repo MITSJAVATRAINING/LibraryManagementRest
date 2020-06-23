@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.library.dto.Book;
 import com.library.dto.TypeValueId;
+import com.library.dto.UserBookMapping;
 import com.library.repository.BookRepository;
 
 @Service
@@ -26,8 +27,20 @@ public class BookService {
 	public int addBook(Book book) {
 		return bookRepository.addBook(book);
 	}
+	
+	public int issueBook(UserBookMapping book) {
+		return bookRepository.issueBook(book);
+	}
+	
+	public int returnBook(UserBookMapping book) {
+		return bookRepository.returnBook(book);
+	}
 
 	public List<Book> getBooks() {
 		return bookRepository.getBooks();
+	}
+	
+	public List<UserBookMapping> getIssuedBooks() {
+		return bookRepository.getIssuedBooks();
 	}
 }

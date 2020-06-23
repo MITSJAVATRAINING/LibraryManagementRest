@@ -8,6 +8,24 @@ public class Book {
 	String categoryName;
 	String authorName;
 	int authorId;
+	int totalBooks;
+	int availableBooks;
+
+	public int getTotalBooks() {
+		return totalBooks;
+	}
+
+	public void setTotalBooks(int totalBooks) {
+		this.totalBooks = totalBooks;
+	}
+
+	public int getAvailableBooks() {
+		return availableBooks;
+	}
+
+	public void setAvailableBooks(int availableBooks) {
+		this.availableBooks = availableBooks;
+	}
 
 	public int getBookId() {
 		return bookId;

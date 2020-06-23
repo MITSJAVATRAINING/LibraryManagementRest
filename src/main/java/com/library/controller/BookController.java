@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.library.dto.Book;
 import com.library.dto.LibraryResponse;
 import com.library.dto.TypeValueId;
+import com.library.dto.UserBookMapping;
 import com.library.services.BookService;
 
 @RestController
@@ -75,6 +76,43 @@ public class BookController {
 		return response;
 	}
 	
+	@RequestMapping(method = RequestMethod.POST, value = "/issuebook")
+	@ResponseBody
+	public LibraryResponse<?> issueBook(@RequestBody UserBookMapping book) {
+
+		LibraryResponse<?> response = new LibraryResponse<Book>();
+
+		try {
+			bookService.issueBook(book);
+			response.setStatusCode(200);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatusCode(500);
+			response.setStatusMsg(e.getMessage());
+		}
+
+		return response;
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/returnbook")
+	@ResponseBody
+	public LibraryResponse<?> returnBook(@RequestBody UserBookMapping book) {
+
+		LibraryResponse<?> response = new LibraryResponse<Book>();
+
+		try {
+			bookService.returnBook(book);
+			response.setStatusCode(200);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatusCode(500);
+			response.setStatusMsg(e.getMessage());
+		}
+
+		return response;
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/books")
 	@ResponseBody
 	public LibraryResponse<Book> getBooks() {
@@ -82,6 +120,23 @@ public class BookController {
 
 		try {
 			List<Book> books = bookService.getBooks();
+			response.setList(books);
+			response.setStatusCode(200);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatusCode(500);
+			response.setStatusMsg(e.getMessage());
+		}
+		return response;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/issuedbooks")
+	@ResponseBody
+	public LibraryResponse<UserBookMapping> getIssuedBooks() {
+		LibraryResponse<UserBookMapping> response = new LibraryResponse<UserBookMapping>();
+
+		try {
+			List<UserBookMapping> books = bookService.getIssuedBooks();
 			response.setList(books);
 			response.setStatusCode(200);
 		} catch (Exception e) {
